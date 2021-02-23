@@ -1,38 +1,115 @@
+
 .App {
-  text-align: center;
+	
+	position: fixed;
+	text-align: center;
+	height: 100%;
+	width: 100%;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+	height: 40vmin;
+	pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .App-link {
-  color: #61dafb;
+	color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
+
+.Map {
+	margin-top: 8em;
+}
+
+.Menu{
+    position: relative;
+	padding: 20px;
+}
+
+.m-item{
+    position: absolute;
+    top: 0;
+	height: 100%;
+    width: 5.5em;
+    background-color: #10375c;
+    box-shadow: 1px 2px 2px #175188;
+    padding: 0.2em;
+    border-radius: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+	text-shadow: 1px 1px 1px black;
+    color: #EDFFEC;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.m-item:hover{
+    border: 2px solid black;
+}
+
+.m-logo{
+    z-index: 1;
+}
+
+.Nav {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.open-1{
+    top: 1.8em;
+    background-color: #900c3f;
+}
+.open-2{
+    top: 3.6em;
+    background-color: #f3c623;
+}
+.open-3{
+    top: 5.4em;
+    background-color: #127681;
+}
+
+.open-4{
+	top: 7.2em;
+	background-color: #654062;
+}
+
+path {
+	pointer-events: all;
+}
+
+path:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
