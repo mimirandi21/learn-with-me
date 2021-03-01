@@ -1,11 +1,27 @@
 import React from "react";
+import { connect } from 'react-redux'
 import USAMap from "react-usa-map";
 import SportsCards from "./SportsCards"
+import { getSportsTeams } from '../redux/actions/SportsTeamsActions'
 
-export default class SportsMap extends React.Component {
+
+class SportsMap extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state ={
+           teams: []
+        }
+    }
+
+    componentDidMount(prevProps){
+        if (this.props !== prevProps) {
+            this.props.getSportsTeams()
+            console.log(this.props)
+        }
+    }
 
 	mapHandler = (e) => {
-		alert(e.target.dataset.name);
+		this.props.getSportsTeams(e.target.dataset.name);
 	};
 
 	statesCustomConfig = () => {
@@ -179,3 +195,17 @@ export default class SportsMap extends React.Component {
 		);
 	}
 }
+
+const mSTP = state => {
+    return {
+        teams: state.teams
+    }
+}
+
+const mDTP = dispatch => {
+    return {
+        getSportsTeams: info => dispatch(getSportsTeams(info))
+    }
+}
+
+export default connect(mSTP, mDTP)(SportsMap)

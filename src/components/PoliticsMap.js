@@ -1,10 +1,39 @@
 import React from "react";
+import { connect } from "react-redux";
 import USAMap from "react-usa-map";
+import { getPolitics } from "../redux/actions/PoliticsActions";
+import PoliticsCards from './PoliticsCards.js'
 
-export default class PoliticsMap extends React.Component {
+
+class PoliticsMap extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            politics: [],
+            chosenOption: ''
+        }
+    this.showPoliticsCard = (e, chosen) => {
+        console.log(e)
+        this.setState({
+            chosenOption: chosen, 
+            showPoliticsCard: !this.state.showPoliticsCard
+        })
+        }
+    }
+
+    componentDidMount(prevProps){
+        if (this.props !== prevProps) {
+            this.props.getPolitics()
+            console.log(this.props)
+        }
+    }
 
 	mapHandler = (e) => {
-		alert(e.target.dataset.name);
+        let thisone = e.target.dataset.name;
+        let chosen = this.props.politics.politics.data.find(option => {
+            return option.abbr === thisone
+        });
+		this.showPoliticsCard(e, chosen)
 	};
 
 	statesCustomConfig = () => {
@@ -170,11 +199,27 @@ export default class PoliticsMap extends React.Component {
 	render() {
 		return (
 			<div className="Map">
+                
 				<USAMap
 					customize={this.statesCustomConfig()}
 					onClick={this.mapHandler}
 				/>
+                <PoliticsCards show={this.state.showPoliticsCard} onClose={this.showPoliticsCard} chosenOption={this.state.chosenOption} />
 			</div>
 		);
 	}
 }
+
+const mSTP = state => {
+    return {
+        politics: state.politics
+    }
+}
+
+const mDTP = dispatch => {
+    return {
+        getPolitics: info => dispatch(getPolitics(info))
+    }
+}
+
+export default connect(mSTP, mDTP)(PoliticsMap)
