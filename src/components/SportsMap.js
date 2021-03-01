@@ -6,10 +6,18 @@ import { getSportsTeams } from '../redux/actions/SportsTeamsActions'
 
 
 class SportsMap extends React.Component {
+
     constructor(props) {
         super(props)
         this.state ={
-           teams: []
+           teams: [],
+           chosenOption: []
+        }
+        this.showSportsCard = (e, chosen) => {
+            this.setState({
+                chosenOption: chosen,
+                showSportsCard: !this.state.showSportsCard
+            })
         }
     }
 
@@ -21,7 +29,12 @@ class SportsMap extends React.Component {
     }
 
 	mapHandler = (e) => {
-		this.props.getSportsTeams(e.target.dataset.name);
+        
+        let thisone = e.target.dataset.name;
+        let chosen = this.props.teams.teams.data.filter(option => {
+            return option.abbr === thisone
+        });
+		this.showSportsCard(e, chosen);
 	};
 
 	statesCustomConfig = () => {
@@ -115,8 +128,7 @@ class SportsMap extends React.Component {
             },
 			NJ: {
 				fill: "#B983AE",
-				clickHandler: (e) =>
-					console.log("Custom handler for NJ", e.target.dataset),
+				
 			},
             NM: {
                 fill: '#B983AE'
@@ -190,7 +202,7 @@ class SportsMap extends React.Component {
 					customize={this.statesCustomConfig()}
 					onClick={this.mapHandler}
 				/>
-                <SportsCards />
+                <SportsCards show={this.state.showSportsCard} onClose={this.showSportsCard} chosenOption={this.state.chosenOption}/>
 			</div>
 		);
 	}
@@ -198,7 +210,7 @@ class SportsMap extends React.Component {
 
 const mSTP = state => {
     return {
-        teams: state.teams
+        teams: state.sportsTeams
     }
 }
 

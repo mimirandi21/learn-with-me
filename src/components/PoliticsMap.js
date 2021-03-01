@@ -127,8 +127,7 @@ class PoliticsMap extends React.Component {
             },
 			NJ: {
 				fill: "#B983AE",
-				clickHandler: (e) =>
-					console.log("Custom handler for NJ", e.target.dataset),
+				
 			},
             NM: {
                 fill: '#B983AE'

@@ -15,10 +15,10 @@ class SportsTeams extends React.Component {
     }
 }
 
-const mSTP = state => {
-    return {
-        teams: state.teams
-    }
-}
+// const mSTP = state => {
+//     return {
+//         teams: state.teams
+//     }
+// }
 
 export default (SportsTeams)
