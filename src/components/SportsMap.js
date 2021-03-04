@@ -11,10 +11,12 @@ class SportsMap extends React.Component {
         super(props)
         this.state ={
            teams: [],
-           chosenOption: []
+           chosenOption: [],
+           chosenTitle: []
         }
-        this.showSportsCard = (e, chosen) => {
+        this.showSportsCard = (e, chosen, title) => {
             this.setState({
+                chosenTitle: title,
                 chosenOption: chosen,
                 showSportsCard: !this.state.showSportsCard
             })
@@ -24,17 +26,17 @@ class SportsMap extends React.Component {
     componentDidMount(prevProps){
         if (this.props !== prevProps) {
             this.props.getSportsTeams()
-            console.log(this.props)
+            
         }
     }
 
 	mapHandler = (e) => {
-        
+        let title = (e.target.textContent);
         let thisone = e.target.dataset.name;
         let chosen = this.props.teams.teams.data.filter(option => {
             return option.abbr === thisone
         });
-		this.showSportsCard(e, chosen);
+		this.showSportsCard(e, chosen, title);
 	};
 
 	statesCustomConfig = () => {
@@ -202,7 +204,7 @@ class SportsMap extends React.Component {
 					customize={this.statesCustomConfig()}
 					onClick={this.mapHandler}
 				/>
-                <SportsCards show={this.state.showSportsCard} onClose={this.showSportsCard} chosenOption={this.state.chosenOption}/>
+                <SportsCards show={this.state.showSportsCard} onClose={this.showSportsCard} chosenOption={this.state.chosenOption} chosenTitle={this.state.chosenTitle} />
 			</div>
 		);
 	}

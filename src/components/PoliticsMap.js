@@ -10,11 +10,13 @@ class PoliticsMap extends React.Component {
         super(props)
         this.state = {
             politics: [],
-            chosenOption: ''
+            chosenOption: '',
+            chosenTitle: ''
         }
-    this.showPoliticsCard = (e, chosen) => {
+    this.showPoliticsCard = (e, chosen, title) => {
         console.log(e)
         this.setState({
+            chosenTitle: title, 
             chosenOption: chosen, 
             showPoliticsCard: !this.state.showPoliticsCard
         })
@@ -24,16 +26,16 @@ class PoliticsMap extends React.Component {
     componentDidMount(prevProps){
         if (this.props !== prevProps) {
             this.props.getPolitics()
-            console.log(this.props)
         }
     }
 
 	mapHandler = (e) => {
+        let title = e.target.textContent;
         let thisone = e.target.dataset.name;
         let chosen = this.props.politics.politics.data.find(option => {
             return option.abbr === thisone
         });
-		this.showPoliticsCard(e, chosen)
+		this.showPoliticsCard(e, chosen, title)
 	};
 
 	statesCustomConfig = () => {
@@ -203,7 +205,7 @@ class PoliticsMap extends React.Component {
 					customize={this.statesCustomConfig()}
 					onClick={this.mapHandler}
 				/>
-                <PoliticsCards show={this.state.showPoliticsCard} onClose={this.showPoliticsCard} chosenOption={this.state.chosenOption} />
+                <PoliticsCards show={this.state.showPoliticsCard} onClose={this.showPoliticsCard} chosenOption={this.state.chosenOption} chosenTitle={this.state.chosenTitle} />
 			</div>
 		);
 	}

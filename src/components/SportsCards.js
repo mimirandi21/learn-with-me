@@ -18,7 +18,7 @@ export default class SportsCards extends React.Component {
               })    
             return(
             <div className="card">
-                {console.log(this.props.chosenOption)}
+                {console.log(this.props)}
                 <Flippy
                     className="flippyContainer"
                     flipOnClick={true}
@@ -30,62 +30,77 @@ export default class SportsCards extends React.Component {
                         className="frontSide"
                     >
                         <span>
-                            <h3>Baseball:</h3>
+                            <h1><u><b>{this.props.chosenTitle}</b></u></h1>
+                            <br/>
+                            
+                            <div className="sportArea">
+                            <h3><b>Baseball:</b></h3>
                             {this.props.chosenOption.map(team => {
                                 if (team.league === "MLB") {
-                                    return (<div>
-                                        <img height="30px" src={team.logo} />
+                                    return (<div className="teamArea">
+                                        <img height="50px" src={team.logo} />
                                         <h5>{team.teamname}</h5>
-                                        <a href={team.website}/>
+                                        <a href={team.website}>Team Site</a>
                                     </div>)
                                 }
                             })}
+                            </div>
                             <br />
-                            <h3>Basketball:</h3>
+                            <br/>
+                            <div className="sportArea">
+                            <h3><b>Basketball:</b></h3>
                             {this.props.chosenOption.map(team => {
                                 if (team.league === "NBA" || team.league === "WNBA") {
-                                    return (<div>
-                                        <img height="30px" src={team.logo} />
+                                    return (<div className="teamArea">
+                                        <img height="50px" src={team.logo} />
                                         <h5>{team.teamname}</h5>
-                                        <a href={team.website}/>
+                                        <a href={team.website}>Team Site</a>
                                     </div>)
                                 }
                             })}
+                            </div>
                             <br />
-                            <h3>Football:</h3>
+                            <br/>
+                            <div className="sportArea">
+                            <h3><b>Football:</b></h3>
                             {this.props.chosenOption.map(team => {
                                 if (team.league === "NFL") {
-                                    return (<div>
-                                        <img height="30px" src={team.logo} />
+                                    return (<div className="teamArea">
+                                        <img height="50px" src={team.logo} />
                                         <h5>{team.teamname}</h5>
-                                        <a href={team.website}/>
+                                        <a href={team.website}>Team Site</a>
                                     </div>)
                                 }
                             })}
+                            </div>
                             <br />
-                            
-                            <h3>Hockey:</h3>
+                            <br/>
+                            <div className="sportArea">
+                            <h3><b>Hockey:</b></h3>
                             {this.props.chosenOption.map(team => {
                                 if (team.league === "NHL") {
-                                    return (<div>
-                                        <img height="30px" src={team.logo} />
+                                    return (<div className="teamArea">
+                                        <img height="50px" src={team.logo} />
                                         <h5>{team.teamname}</h5>
-                                        <a href={team.website}/>
+                                        <a href={team.website}>Team Site</a>
                                     </div>)
                                 }
                             })}
-                        
+                            </div>
+                            <br/>
                             <br />
-                            <h3>Soccer:</h3>
+                            <div className="sportArea">
+                            <h3><b>Soccer:</b></h3>
                             {this.props.chosenOption.map(team => {
                                 if (team.league === "MLS") {
-                                    return (<div>
-                                        <img height="30px" src={team.logo} />
+                                    return (<div className="teamArea">
+                                        <img height="50px" src={team.logo} />
                                         <h5>{team.teamname}</h5>
-                                        <a href={team.website}/>
+                                        <a href={team.website}>Team Site</a>
                                     </div>)
                                 }
                             })}
+                            </div>
                         </span>
                     </FrontSide>
                     <BackSide className="backSide">
