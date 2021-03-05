@@ -1,10 +1,37 @@
 import React from "react";
+import { connect } from 'react-redux'
 import USAMap from "react-usa-map";
+import { getCapitals } from "../redux/actions/CapitalsActions";
+import CapitalCards from './CapitalCards.js'
 
-export default class CapitalMap extends React.Component {
+class CapitalMap extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state ={
+           teams: [],
+           chosenOption: [],
+        }
+        this.showCapitalCard = (e, chosen) => {
+            this.setState({
+                chosenOption: chosen,
+                showCapitalCard: !this.state.showCapitalCard
+            })
+        }
+    }
+
+	componentDidMount(prevProps){
+        if (this.props !== prevProps) {
+            this.props.getCapitals()
+            
+        }
+    }
 
 	mapHandler = (e) => {
-		alert(e.target.dataset.name);
+        let thisone = e.target.dataset.name;
+        let chosen = this.props.capitals.capitals.data.find(option => {
+            return option.abbr === thisone
+        });
+		this.showCapitalCard(e, chosen);
 	};
 
 	statesCustomConfig = () => {
@@ -97,15 +124,13 @@ export default class CapitalMap extends React.Component {
                 fill: '#839CB9'
             },
 			NJ: {
-				fill: "#B983AE",
-				clickHandler: (e) =>
-					console.log("Custom handler for NJ", e.target.dataset),
+				fill: "#B983AE"
 			},
             NM: {
                 fill: '#B983AE'
             },
 			NY: {
-				fill: "#B9838A",
+				fill: "#B9838A"
 			},
             NC: {
                 fill: '#839CB9'
@@ -174,7 +199,21 @@ export default class CapitalMap extends React.Component {
 					customize={this.statesCustomConfig()}
 					onClick={this.mapHandler}
 				/>
+                <CapitalCards show={this.state.showCapitalCard} onClose={this.showCapitalCard} chosenOption={this.state.chosenOption} />
 			</div>
 		);
 	}
 }
+const mSTP = state => {
+    return {
+        capitals: state.capitals
+    }
+}
+
+const mDTP = dispatch => {
+    return {
+        getCapitals: info => dispatch(getCapitals(info))
+    }
+}
+
+export default connect(mSTP, mDTP)(CapitalMap)

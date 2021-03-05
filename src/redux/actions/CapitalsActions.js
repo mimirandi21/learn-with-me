@@ -6,8 +6,8 @@ export const getCapitals = () => {
         dispatch({ type: 'START_ADDING_CAPITALS' })
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
-                dispatch({ type: 'SET_CAPITALS', teams: data })
+            .then(JSON => {
+                dispatch({ type: 'SET_CAPITALS', capitals: {data: JSON} })
             })
     }
 }

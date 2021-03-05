@@ -1,7 +1,7 @@
 import { SET_CAPITALS } from '../actionTypes'
 import { START_ADDING_CAPITALS } from '../actionTypes'
 
-export default function CapitalsReducer(state = {capitals: [], showCapitalsCard: false, requesting: false}, action) {
+export default function CapitalsReducer(state = {capitals: [], showCapitalCard: false, requesting: false}, action) {
     switch(action.type) {
 
         case START_ADDING_CAPITALS:

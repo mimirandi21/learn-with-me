@@ -1,10 +1,40 @@
 import React from "react";
+import { connect } from 'react-redux'
 import USAMap from "react-usa-map";
+import { getGeneral } from "../redux/actions/GeneralActions";
+import GeneralCards from './GeneralCards.js'
 
-export default class GeneralMap extends React.Component {
+class GeneralMap extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state ={
+           generals: [],
+           chosenOption: [],
+           chosenTitle: []
+        }
+        this.showGeneralCard = (e, chosen, title) => {
+            this.setState({
+                chosenTitle: title,
+                chosenOption: chosen,
+                showGeneralCard: !this.state.showGeneralCard
+            })
+        }
+    }
+
+	componentDidMount(prevProps){
+        if (this.props !== prevProps) {
+            this.props.getGeneral()
+            
+        }
+    }
 
 	mapHandler = (e) => {
-		alert(e.target.dataset.name);
+        let title = (e.target.textContent);
+        let thisone = e.target.dataset.name;
+        let chosen = this.props.general.general.data.filter(option => {
+            return option.abbr === thisone
+        });
+		this.showGeneralCard(e, chosen, title);
 	};
 
 	statesCustomConfig = () => {
@@ -97,15 +127,13 @@ export default class GeneralMap extends React.Component {
                 fill: '#839CB9'
             },
 			NJ: {
-				fill: "#B983AE",
-				clickHandler: (e) =>
-					console.log("Custom handler for NJ", e.target.dataset),
+				fill: "#B983AE"
 			},
             NM: {
                 fill: '#B983AE'
             },
 			NY: {
-				fill: "#B9838A",
+				fill: "#B9838A"
 			},
             NC: {
                 fill: '#839CB9'
@@ -174,7 +202,21 @@ export default class GeneralMap extends React.Component {
 					customize={this.statesCustomConfig()}
 					onClick={this.mapHandler}
 				/>
+                <GeneralCards show={this.state.showGeneralCard} onClose={this.showGeneralCard} chosenOption={this.state.chosenOption} chosenTitle={this.state.chosenTitle} />
 			</div>
 		);
 	}
 }
+const mSTP = state => {
+    return {
+        general: state.general
+    }
+}
+
+const mDTP = dispatch => {
+    return {
+        getGeneral: info => dispatch(getGeneral(info))
+    }
+}
+
+export default connect(mSTP, mDTP)(GeneralMap)
