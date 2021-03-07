@@ -41,158 +41,157 @@ class PoliticsMap extends React.Component {
 	statesCustomConfig = () => {
 		return {
 			AL: {
-                fill: '#83B9A0'
+                fill: (this.state.chosenOption.abbr === "AL") ? '#10375c' : '#83b9a0'
             },
             AK: {
-                fill: '#B7B983'
+                fill: (this.state.chosenOption.abbr === "AK") ? '#10375c' : '#B7B983'
             },
             AZ: {
-                fill: '#83B9A0'
+                fill: (this.state.chosenOption.abbr === "AZ") ? '#10375c' : '#83B9A0'
             },
             AR: {
-                fill: '#B983AE'
+                fill: (this.state.chosenOption.abbr === "AR") ? '#10375c' : '#B983AE'
             },
             CA: {
-                fill: '#B983AE'
+                fill: (this.state.chosenOption.abbr === "CA") ? '#10375c' : '#B983AE'
             },
             CO: {
-                fill: '#B9A083'
+                fill: (this.state.chosenOption.abbr === "CO") ? '#10375c' : '#B9A083'
             },
             CT: {
-                fill: '#8583B9'
+                fill: (this.state.chosenOption.abbr === "CT") ? '#10375c' : '#8583B9'
             },
             DE: {
-                fill: '#B983AE'
+                fill: (this.state.chosenOption.abbr === "DE") ? '#10375c' : '#B983AE'
             },
             FL: {
-                fill: '#B7B983'
+                fill: (this.state.chosenOption.abbr === "FL") ? '#10375c' : '#B7B983'
             },
             GA: {
-                fill: '#B9838A'
+                fill: (this.state.chosenOption.abbr === "GA") ? '#10375c' : '#B9838A'
             },
             HI: {
-                fill: '#B9838A'
+                fill: (this.state.chosenOption.abbr === "HI") ? '#10375c' : '#839cb9'
             },
             ID: {
-                fill: '#B9838A'
+                fill: (this.state.chosenOption.abbr === "ID") ? '#10375c' : '#B9838A'
             },
             IL: {
-                fill: '#83B9A0'
+                fill: (this.state.chosenOption.abbr === "IL") ? '#10375c' : '#83B9A0'
             },
             IN: {
-                fill: '#839CB9'
+                fill: (this.state.chosenOption.abbr === "IN") ? '#10375c' : '#839CB9'
             },
             IA: {
-                fill: '#B9838A'
+                fill: (this.state.chosenOption.abbr === "IA") ? '#10375c' : '#B9838A'
             },
             KS: {
-                fill: '#B9838A'
+                fill: (this.state.chosenOption.abbr === "KS") ? '#10375c' : '#839cba'
             },
             KY: {
-                fill: '#8583B9'
+                fill: (this.state.chosenOption.abbr === "KY") ? '#10375c' : '#8583B9'
             },
             LA: {
-                fill: '#8583B9'
+                fill: (this.state.chosenOption.abbr === "LA") ? '#10375c' : '#8583B9'
             },
             ME: {
-                fill: '#B7B983'
+                fill: (this.state.chosenOption.abbr === "ME") ? '#10375c' : '#B7B983'
             },
             MD: {
-                fill: '#B9A083'
+                fill: (this.state.chosenOption.abbr === "MD") ? '#10375c' : '#B9A083'
             },
             MA: {
-                fill: '#83B9A0'
+                fill: (this.state.chosenOption.abbr === "MA") ? '#10375c' : '#83B9A0'
             },
             MI: {
-                fill: '#83B9A0'
+                fill: (this.state.chosenOption.abbr === "MI") ? '#10375c' : '#83B9A0'
             },
             MN: {
-                fill: '#839CB9'
+                fill: (this.state.chosenOption.abbr === "MN") ? '#10375c' : '#839CB9'
             },
             MS: {
-                fill: '#839CB9'
+                fill: (this.state.chosenOption.abbr === "MS") ? '#10375c' : '#839CB9'
             },
             MO: {
-                fill: '#B7B983'
+                fill: (this.state.chosenOption.abbr === "MO") ? '#10375c' : '#B7B983'
             },
             MT: {
-                fill: '#83B9A0'
+                fill: (this.state.chosenOption.abbr === "MT") ? '#10375c' : '#83B9A0'
             },
             NE: {
-                fill: '#B983AE'
+                fill: (this.state.chosenOption.abbr === "NE") ? '#10375c' : '#B983AE'
             },
             NV: {
-                fill: '#8583B9'
+                fill: (this.state.chosenOption.abbr === "NV") ? '#10375c' : '#8583B9'
             },
             NH: {
-                fill: '#839CB9'
+                fill: (this.state.chosenOption.abbr === "NH") ? '#10375c' : '#839CB9'
             },
 			NJ: {
-				fill: "#B983AE",
-				
+				fill: (this.state.chosenOption.abbr === "NJ") ? '#10375c' : "#B983AE"
 			},
             NM: {
-                fill: '#B983AE'
+                fill: (this.state.chosenOption.abbr === "NM") ? '#10375c' : '#B983AE'
             },
 			NY: {
-				fill: "#B9838A",
+				fill: (this.state.chosenOption.abbr === "NY") ? '#10375c' : "#B9838A"
 			},
             NC: {
-                fill: '#839CB9'
+                fill: (this.state.chosenOption.abbr === "NC") ? '#10375c' : '#839CB9'
             },
             ND: {
-                fill: '#B9A083'
+                fill: (this.state.chosenOption.abbr === "ND") ? '#10375c' : '#B9A083'
             },
             OH: {
-                fill: '#B983AE'
+                fill: (this.state.chosenOption.abbr === "OH") ? '#10375c' : '#B983AE'
             },
             OK: {
-                fill: '#83B9A0'
+                fill: (this.state.chosenOption.abbr === "OK") ? '#10375c' : '#83B9A0'
             },
             OR: {
-                fill: '#B9A083'
+                fill: (this.state.chosenOption.abbr === "OR") ? '#10375c' : '#B9A083'
             },
             PA: {
-                fill: '#83B9A0'
+                fill: (this.state.chosenOption.abbr === "PA") ? '#10375c' : '#83B9A0'
             },
             RI: {
-                fill: '#839CB9'
+                fill: (this.state.chosenOption.abbr === "RI") ? '#10375c' : '#839CB9'
             },
             SC: {
-                fill: '#8583B9'
+                fill: (this.state.chosenOption.abbr === "SC") ? '#10375c' : '#8583B9'
             },
             SD: {
-                fill: '#8583B9'
+                fill: (this.state.chosenOption.abbr === "SD") ? '#10375c' : '#8583B9'
             },
             TN: {
-                fill: '#B9A083'
+                fill: (this.state.chosenOption.abbr === "TN") ? '#10375c' : '#B9A083'
             },
             TX: {
-                fill: '#839CBA'
+                fill: (this.state.chosenOption.abbr === "TX") ? '#10375c' : '#b9838a'
             },
             UT: {
-                fill: '#839CBA'
+                fill: (this.state.chosenOption.abbr === "UT") ? '#10375c' : '#839CBA'
             },
             VT: {
-                fill: '#B9A083'
+                fill: (this.state.chosenOption.abbr === "VT") ? '#10375c' : '#B9A083'
             },
             VA: {
-                fill: '#83B9A0'
+                fill: (this.state.chosenOption.abbr === "VA") ? '#10375c' : '#83B9A0'
             },
             WA: {
-                fill: '#839CB9'
+                fill: (this.state.chosenOption.abbr === "WA") ? '#10375c' : '#839CB9'
             },
             WV: {
-                fill: '#B7B983'
+                fill: (this.state.chosenOption.abbr === "WV") ? '#10375c' : '#B7B983'
             },
             WI: {
-                fill: '#B983AE'
+                fill: (this.state.chosenOption.abbr === "WI") ? '#10375c' : '#B983AE'
             },
             WY: {
-                fill: '#B7B983'
+                fill: (this.state.chosenOption.abbr === "WY") ? '#10375c' : '#B7B983'
             },
-            DC: {
-                fill: '#B9A083'
+            DC2: {
+                fill: (this.state.chosenOption.abbr === "DC") ? '#10375c' : '#b9838a'
             },
 		
 		};

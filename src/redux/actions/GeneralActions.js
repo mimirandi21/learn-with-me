@@ -5,8 +5,8 @@ export const getGeneral = () => {
         dispatch({ type: 'START_ADDING_GENERAL' })
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
-                dispatch({ type: 'SET_GENERAL', teams: data })
+            .then(JSON => {
+                dispatch({ type: 'SET_GENERAL', general: {data: JSON} })
             })
     }
 }

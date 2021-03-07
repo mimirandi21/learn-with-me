@@ -43,25 +43,14 @@ a {
 }
 
 .flippy-back {
-	--c: #314e6e;
-    --nlist: #aec1d6, #4f81b9;
-	--rlist: var(--c) 0 3px, transparent 0 7px;
-    --dim: 100% 50% no-repeat;
-    --ang: 90deg;
-    border-radius: 7px;
-    box-shadow: 2px 2px 17px #000;
-    background: repeating-linear-gradient(var(--ang-0, -45deg), var(--rlist)) var(--pos-0, 0 0)/var(--dim), repeating-linear-gradient(var(--ang-1, 45deg), var(--rlist)) var(--pos-1, 0 100%)/var(--dim), linear-gradient(var(--ang), var(--nlist));
+	background-image: linear-gradient(to top right, rgba(131, 156, 186, .2), rgba(131, 156, 186, 1));
+	
 }
 
 .capitalBackSide {
 	background: rgb(236, 236, 234);
 }
 
-.v {
-	--dim: 50% no-repeat;
-	--ang: 0deg;
-	--pos-1: 100%;
-}
 
 .flippy-front {
 	background-color: rgb(236, 236, 234);
@@ -119,8 +108,32 @@ a {
 	box-shadow: 1rem, 0 0 rgba(0,0,0,0.2);
 }
 
+.generalImg {
+	display: flex;
+	justify-content: space-evenly;
+	flex-flow:wrap
+}
+
+h1 {
+	font-size: 50px;
+}
+
 h3 {
-	color:#b9838a
+	color:#b9838a;
+	font-size: 35px;
+}
+
+h5 {
+	color: black;
+}
+
+.happy {
+	color:#127681;
+}
+
+img {
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 @keyframes App-logo-spin {
@@ -165,7 +178,7 @@ h3 {
 }
 
 .m-logo{
-    z-index: 1;
+    z-index: 5;
 }
 
 .Nav {
@@ -179,19 +192,23 @@ h3 {
 .open-1{
     top: 1.8em;
     background-color: #900c3f;
+	z-index: 4;
 }
 .open-2{
     top: 3.6em;
-    background-color: #f3c623;
+    background-color: #cea719;
+	z-index:3;
 }
 .open-3{
     top: 5.4em;
     background-color: #127681;
+	z-index:2;
 }
 
 .open-4{
 	top: 7.2em;
 	background-color: #654062;
+	z-index:1;
 }
 
 path {
@@ -203,11 +220,20 @@ path:hover {
 	cursor: pointer;
 }
 
+path:active {
+	opacity:0.5;
+}
+
 .sportArea {
 	margin: 20px 300px;
 }
 
 .teamArea {
-	padding: 20px;
-	
+	padding: 20px;	
+}
+
+ul {
+	display: inline-block;
+	text-align: left;
+	padding: 0;
 }

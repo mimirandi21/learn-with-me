@@ -7,7 +7,7 @@ export default function GeneralFactsReducer(state = {general: [], showGeneralCar
         case START_ADDING_GENERAL:
             return {
                 ...state,
-                general: [...state.general],
+                
                 requesting: true
             }
 

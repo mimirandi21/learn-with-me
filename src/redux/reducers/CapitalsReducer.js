@@ -7,7 +7,7 @@ export default function CapitalsReducer(state = {capitals: [], showCapitalCard: 
         case START_ADDING_CAPITALS:
             return {
                 ...state,
-                capitals: [...state.capitals],
+                
                 requesting: true
             }
 

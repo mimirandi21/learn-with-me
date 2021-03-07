@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { NavLink, withRouter } from "react-router-dom";
-import { connect } from 'react-redux'
-import { getPolitics } from '../redux/actions/PoliticsActions'
+
 
 const link = {
 	width: "5.5em",
@@ -74,10 +73,5 @@ const Nav = props => {
 	
 }
 
-// const mDTP = dispatch => {
-// 	return {
-// 		getPolitics: info => getPolitics(info)
-// 	}
-// }
 
 export default (withRouter(Nav))

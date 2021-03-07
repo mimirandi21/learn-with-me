@@ -4,7 +4,9 @@ import Flippy, {FrontSide, BackSide} from 'react-flippy'
 export default class CapitalCards extends React.Component {
 
     render() {
-          
+        if (this.props.chosenOption.length === 0){
+            return null
+        }else {  
             return(
             <div className="card">
                 <style>
@@ -37,4 +39,5 @@ export default class CapitalCards extends React.Component {
             </div>
         )
         }
+    }
 }
