@@ -14,7 +14,9 @@ class SportsMap extends React.Component {
            chosenOption: [],
            chosenTitle: []
         }
-        this.showSportsCard = (e, chosen, title) => {
+        
+        //set state to clicked option
+        this.showSportsCard = (chosen, title) => {
             this.setState({
                 chosenTitle: title,
                 chosenOption: chosen,
@@ -23,6 +25,7 @@ class SportsMap extends React.Component {
         }
     }
 
+    //fetch teams if not done previously
     componentDidMount(prevProps){
         if (this.props !== prevProps) {
             this.props.getSportsTeams()
@@ -30,15 +33,17 @@ class SportsMap extends React.Component {
         }
     }
 
+    //use click event to get usstate data, send to state
 	mapHandler = (e) => {
         let title = (e.target.textContent);
         let thisone = e.target.dataset.name;
         let chosen = this.props.teams.teams.data.filter(option => {
             return option.abbr === thisone
         });
-		this.showSportsCard(e, chosen, title);
+		this.showSportsCard(chosen, title);
 	};
 
+    //set usstate color, keep dark when selected
 	statesCustomConfig = () => {
         
 		return {
@@ -204,7 +209,7 @@ class SportsMap extends React.Component {
 					customize={this.statesCustomConfig()}
 					onClick={this.mapHandler}
 				/>
-                <SportsCards show={this.state.showSportsCard} onClose={this.showSportsCard} chosenOption={this.state.chosenOption} chosenTitle={this.state.chosenTitle} />
+                <SportsCards show={this.state.showSportsCard} chosenOption={this.state.chosenOption} chosenTitle={this.state.chosenTitle} />
 			</div>
 		);
 	}

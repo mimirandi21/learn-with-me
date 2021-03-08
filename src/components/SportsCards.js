@@ -4,15 +4,16 @@ import Flippy, {FrontSide, BackSide} from 'react-flippy'
 export default class SportsCards extends React.Component {
 
     render() {
-        console.log(this.props)
+        //*render no card if no usstate chosen
         if (this.props.chosenTitle.length === 0){
             return null
+        //*render "no teams" if state has no sports teams
         } else if (this.props.chosenOption.length === 0){
             return <div><br/><br/>
             <h2>This state has no sports teams :(</h2>
             </div>
+        //*render card if state has teams
         } else {
-            console.log(this.props)
               const listTeam = this.props.chosenOption.map(team => {
                   <div>
                     <img height="30px" src={team.logo} />
@@ -22,7 +23,7 @@ export default class SportsCards extends React.Component {
               })    
             return(
             <div className="card">
-                {console.log(this.props)}
+                
                 <Flippy
                     className="flippyContainer"
                     flipOnClick={true}

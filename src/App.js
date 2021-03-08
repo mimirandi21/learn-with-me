@@ -4,14 +4,9 @@ import Capitals from "./containers/Capitals";
 import GeneralFacts from "./containers/GeneralFacts";
 import SportsTeams from "./containers/SportsTeams";
 import Politics from "./containers/Politics";
-import { getSportsTeams } from './redux/actions/SportsTeamsActions'
-import { getPolitics } from './redux/actions/PoliticsActions'
-import { getGeneral } from './redux/actions/GeneralActions'
-import { getCapitals } from './redux/actions/CapitalsActions'
 import Home from "./components/Home"
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { connect } from 'react-redux'
 
 
 class App extends React.Component {

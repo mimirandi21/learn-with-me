@@ -4,17 +4,18 @@ import Flippy, {FrontSide, BackSide} from 'react-flippy'
 export default class PoliticsCards extends React.Component {
 
     render() {
-        
+        //*render no card if no usstate chosen
         if (!this.props.chosenOption){
             return null
+        //*render card when state chosen
         } else {
             const listCongress = this.props.chosenOption.congressmen.map(person => 
                 <li>{person}</li>
             );
-        
+        //!different info when DC chosen
         return(
             <div className="card">
-                {console.log(this.props.chosenOption.title)}
+                
                 <Flippy
                     className="flippyContainer"
                     flipOnClick={true}
@@ -45,7 +46,7 @@ export default class PoliticsCards extends React.Component {
                             <h5>{this.props.chosenOption.governor}</h5>
                             <br/>
                             <h3>{this.props.chosenOption.abbr !== "DC" ? 'Senators:' : null}</h3>
-                            <h5>{this.props.chosenOption.abbr !== "DC" ? `${this.props.chosenOption.senator[0]}, ${this.props.chosenOption.senator[1]}` : null }</h5>
+                            <h5>{this.props.chosenOption.abbr !== "DC" ? `${this.props.chosenOption.senator[0]}  &  ${this.props.chosenOption.senator[1]}` : null }</h5>
                             <br/>
                             <h3>Congressmen/Congresswomen:</h3>
                             <ul className="congress">{listCongress}

@@ -2,6 +2,7 @@ import React from 'react'
 import Flippy, {FrontSide, BackSide} from 'react-flippy'
 
 export default class SportsCards extends React.Component {
+    //formatting for order and size (st, nd, rd) / formatting for date
     formatDate(string){
         var options = { year: 'numeric', month: 'long', day: 'numeric' };
         return new Date(string).toLocaleDateString([],options);
@@ -22,14 +23,17 @@ export default class SportsCards extends React.Component {
     }
 
     render() {
-        
+        //*render no card if no usstate chosen
         if (!this.props.chosenOption){
             return null
+        //*render card when state chosen
         } else {
+            //use of formatting for order and size (st, nd, rd) / formatting for date
             const formattedOrder = this.props.chosenOption.abbr !== "DC" ? this.ordinal_suffix_of(this.props.chosenOption.order) : null
             const formattedDate = this.props.chosenOption.abbr !== "DC" ? this.formatDate(this.props.chosenOption.year) : null
             const formattedRank = this.props.chosenOption.abbr !== "DC" ? this.ordinal_suffix_of(this.props.chosenOption.poprank) : null
             const formattedSize = this.props.chosenOption.abbr !== "DC" ? this.ordinal_suffix_of(this.props.chosenOption.sizerank) : null
+            //!different info when DC chosen
             return(
             <div className="card">
                 
@@ -40,9 +44,10 @@ export default class SportsCards extends React.Component {
                     flipDirection="horizontal"
                     ref={(r) => this.flippy = r}
                 >
+                    
                     <FrontSide
                         className="frontSide"
-                    >
+                    > 
                         <span>
                             <h1><b>{this.props.chosenOption.abbr !== "DC" ? this.props.chosenTitle : 'Washington D.C'}</b> {this.props.chosenOption.abbr !== "DC" ? `became the ${formattedOrder} state on ${formattedDate}.` : null}</h1>
                             <h2>{this.props.chosenOption.abbr !== "DC" ? `It is the ${formattedRank} most populated state with ${this.props.chosenOption.population.toLocaleString()} people.` : `${this.props.chosenOption.population} people live in Washington D.C.`}</h2>

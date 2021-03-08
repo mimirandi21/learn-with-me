@@ -14,7 +14,9 @@ class CapitalMap extends React.Component {
            teams: [],
            chosenOption: [],
         }
-        this.showCapitalCard = (e, chosen) => {
+
+        //set state to clicked option
+        this.showCapitalCard = (chosen) => {
             this.setState({
                 chosenOption: chosen,
                 showCapitalCard: !this.state.showCapitalCard
@@ -22,6 +24,7 @@ class CapitalMap extends React.Component {
         }
     }
 
+    //fetch capitals if not done previously
 	componentDidMount(prevProps){
         if (this.props !== prevProps) {
             this.props.getCapitals()
@@ -29,14 +32,16 @@ class CapitalMap extends React.Component {
         }
     }
 
+    //use click event to get usstate data, send to state
 	mapHandler = (e) => {
         let thisone = e.target.dataset.name;
         let chosen = this.props.capitals.capitals.data.find(option => {
             return option.abbr === thisone
         });
-		this.showCapitalCard(e, chosen);
+		this.showCapitalCard(chosen);
 	};
 
+    //set usstate color, keep dark when selected
 	statesCustomConfig = () => {
 		return {
 			AL: {
@@ -190,7 +195,8 @@ class CapitalMap extends React.Component {
                 fill: (this.state.chosenOption.abbr === "WY") ? '#10375c' : '#B7B983'
             },
             DC2: {
-                fill: (this.state.chosenOption.abbr === "DC") ? '#10375c' : '#b9838a'
+                fill: (this.state.chosenOption.abbr === "DC") ? '#10375c' : '#b9838a', 
+                title: 'Washington D.C.'
             },
  
 		};

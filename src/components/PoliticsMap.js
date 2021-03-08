@@ -13,8 +13,9 @@ class PoliticsMap extends React.Component {
             chosenOption: '',
             chosenTitle: ''
         }
-    this.showPoliticsCard = (e, chosen, title) => {
-        console.log(e)
+
+    //set state to clicked option    
+    this.showPoliticsCard = (chosen, title) => {
         this.setState({
             chosenTitle: title, 
             chosenOption: chosen, 
@@ -23,21 +24,24 @@ class PoliticsMap extends React.Component {
         }
     }
 
+    //fetch politics if not done previously
     componentDidMount(prevProps){
         if (this.props !== prevProps) {
             this.props.getPolitics()
         }
     }
 
+    //use click event to get usstate data, send to state
 	mapHandler = (e) => {
         let title = e.target.textContent;
         let thisone = e.target.dataset.name;
         let chosen = this.props.politics.politics.data.find(option => {
             return option.abbr === thisone
         });
-		this.showPoliticsCard(e, chosen, title)
+		this.showPoliticsCard(chosen, title)
 	};
 
+    //set usstate color, keep dark when selected
 	statesCustomConfig = () => {
 		return {
 			AL: {

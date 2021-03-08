@@ -9,6 +9,7 @@ a {
 	height: 100%;
 	width: 100%;
 	overflow-y: auto;
+	overflow-x: auto;
 }
 
 .App-logo {
@@ -128,7 +129,7 @@ h5 {
 }
 
 .happy {
-	color:#127681;
+	color:#92234e;
 }
 
 img {

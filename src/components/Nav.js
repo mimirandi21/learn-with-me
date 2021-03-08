@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { NavLink, withRouter } from "react-router-dom";
 
-
+// link styling
 const link = {
 	width: "5.5em",
 	padding: "0.2em",
@@ -20,12 +20,14 @@ const Nav = props => {
 
 	const [openMenu, setOpenMenu] = useState(false)
 
+	// set className for dropdown menu
 	const setClassNames = num => {
         const classArr = ["m-item"];
         if (openMenu) classArr.push(`open-${num}`)
         return classArr.join(' ')
     }
 
+	// create link to correct page
 	const pushToRoute = route => {
         props.history.push(route)
         setOpenMenu(false)
