@@ -15,7 +15,7 @@ export default class CapitalCards extends React.Component {
                 <style>
 @import url('https://fonts.googleapis.com/css2?family=Ruslan+Display&family=Seymour+One&display=swap');
 </style>
-                {console.log(this.props)}
+                
                 <Flippy
                     className="flippyContainer"
                     flipOnClick={true}
