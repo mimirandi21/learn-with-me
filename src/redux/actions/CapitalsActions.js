@@ -3,7 +3,7 @@ const URL = process.env.NODE_ENV === 'production' ? "https://afternoon-chamber-9
 export const getCapitals = () => {
     return (dispatch) => {
         dispatch({ type: 'START_ADDING_CAPITALS' })
-        fetch(URL)
+        fetch("https://afternoon-chamber-94748.herokuapp.com/capitals")
             .then(res => res.json())
             .then(JSON => {
                 dispatch({ type: 'SET_CAPITALS', capitals: {data: JSON} })

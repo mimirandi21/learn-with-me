@@ -3,7 +3,7 @@ const URL = process.env.NODE_ENV === 'production' ? "https://afternoon-chamber-9
 export const getGeneral = () => {
     return (dispatch) => {
         dispatch({ type: 'START_ADDING_GENERAL' })
-        fetch(URL)
+        fetch("https://afternoon-chamber-94748.herokuapp.com/generals")
             .then(res => res.json())
             .then(JSON => {
                 dispatch({ type: 'SET_GENERAL', general: {data: JSON} })
