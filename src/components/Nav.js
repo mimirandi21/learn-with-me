@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { NavLink, withRouter } from "react-router-dom";
+import Click from './click'
 
 // link styling
 const link = {
@@ -34,7 +35,9 @@ const Nav = props => {
     }
 	
 	return (
+		
 		<div className="Nav">
+			
 			<NavLink
 				to="/"
 				/* set exact so it knows to only set activeStyle when route is deeply equal to link */
