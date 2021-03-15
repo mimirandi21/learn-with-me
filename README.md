@@ -1,6 +1,6 @@
 # Learn with Me USA
 A learning app to build knowledge about the 50 states and Washington D.C.
-![screenshot](./public/images/LearnHome.png)
+![screenshot](./public/LearnHome.png)
 
 [Project Walkthrough Video](https://drive.google.com/file/d/1Kb65_IWpUE36hncSFFwz8KsaxYWN9eOT/view?usp=sharing)
 
@@ -19,10 +19,10 @@ More than just capitals, you can also learn about sports teams based in each sta
 
 ## Screenshots
 Map with Menu Options
-![Main screenshot](./public/images/LearnMain.png)
+![Main screenshot](./public/LearnMain.png)
 
 General Card Example
-![Card screenshot](./public/images/LearnCard.png)
+![Card screenshot](./public/LearnCard.png)
 
 ## Technologies
 * React
@@ -38,10 +38,10 @@ General Card Example
 THANKS FOR CHECKING OUT MY PROJECT!
 
 ## Setup
-Clone this repo to your local machine `git clone <this-repo-url>`
-run `cd learn-with-me` to access
-run `npm install` to install required dependencies
-run `npm start` in your terminal and follow link to the correct port
+*Clone this repo to your local machine `git clone <this-repo-url>`
+*run `cd learn-with-me` to access
+*run `npm install` to install required dependencies
+*run `npm start` in your terminal and follow link to the correct port
 
 *Also need to install Learn-API for database.*
 
