@@ -1,27 +1,67 @@
-# README
+# Learn with Me USA
+A learning app to build knowledge about the 50 states and Washington D.C.
+![screenshot](./public/images/LearnHome.png)
 
-Thanks for coming to Learn with me USA. Today you can learn interesting facts about each of the 50 states, see their sports teams or take a look at the political figures from each state.  You can check out a little bit about Washington D.C. too!  If you want to test your knowledge, you can check out the capitals section and see how many you know!
+[Project Walkthrough Video](https://drive.google.com/file/d/1Kb65_IWpUE36hncSFFwz8KsaxYWN9eOT/view?usp=sharing)
 
-###Follow along below to clone and run this repo.
+## Table of contents
+* [General info](#general-info)
+* [Screenshots](#screenshots)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Features](#features)
+* [Status](#status)
+* [Inspiration](#inspiration)
+* [Contact](#contact)
 
-To see more about this process:
+## General info
+More than just capitals, you can also learn about sports teams based in each state or learn about the state tree or bird of each state.  If you are interested in politics, you can see who represents each state in the Senate or House of Representatives.  All this information is right at your fingertips with Learn with Me USA!
 
-Youtube Project Post: https://drive.google.com/file/d/1Kb65_IWpUE36hncSFFwz8KsaxYWN9eOT/view?usp=sharing
+## Screenshots
+Map with Menu Options
+![Main screenshot](./public/images/LearnMain.png)
 
-Project Blog Post: https://dev.to/meemeek/going-flippy-for-react-igm
+General Card Example
+![Card screenshot](./public/images/LearnCard.png)
+
+## Technologies
+* React
+* Redux
+* Thunk
+* React USA Map
+* React Flippy
+
+****To see more about this process:****
+
+[Project Blog Post](https://dev.to/meemeek/going-flippy-for-react-igm)
 
 THANKS FOR CHECKING OUT MY PROJECT!
 
-##Installation Fork and clone repo and run.
+## Setup
+Clone this repo to your local machine `git clone <this-repo-url>`
+run `cd learn-with-me` to access
+run `npm install` to install required dependencies
+run `npm start` in your terminal and follow link to the correct port
 
-$ npm install
+*Also need to install Learn-API for database.*
 
-##Usage Please npm start in your terminal from learn-with-me, and open learn-api by following instructions on its README.
+**You can also see this project live on [Heroku](https://learn-with-me-usa.herokuapp.com/)!**
 
-##You can also use Learn with me USA at https://learn-with-me-usa.herokuapp.com/
+## Features
+* Multiple paths to learn different information about each state.
+* Includes Washington D.C. with relevant information given.
+* Flip cards to test your knowledge of state capitals.
+* Links to related web pages including sports team pages and state government website.
 
-##Contributing Bug reports and pull requests are welcome on GitHub at https://github.com/mimirandi21/learn-with-me. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
+To-do list:
+* An interactive feature for testing knowledge.
+* A log in feature to save progress in learning.
 
-##License This is available as open source under the terms of the MIT License.
+## Status
+Project is in progress.  Additional functionality still forthcoming.
 
-##Code of Conduct Everyone interacting in the Learn-with-me project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
+## Inspiration
+Project inspired by memories of using flash cards with my mom when I was younger to memorize states and capitals.  The information stuck with me and I still remember most of them today because it was something we loved doing together.  Learning is more fun with someone you love!
+
+## Contact
+Bug reports and pull requests are welcome on GitHub at https://github.com/mimirandi21/learn-with-me.
