@@ -38,10 +38,10 @@ General Card Example
 THANKS FOR CHECKING OUT MY PROJECT!
 
 ## Setup
-*Clone this repo to your local machine `git clone <this-repo-url>`
-*run `cd learn-with-me` to access
-*run `npm install` to install required dependencies
-*run `npm start` in your terminal and follow link to the correct port
+* Clone this repo to your local machine `git clone <this-repo-url>`
+* run `cd learn-with-me` to access
+* run `npm install` to install required dependencies
+* run `npm start` in your terminal and follow link to the correct port
 
 *Also need to install Learn-API for database.*
 
