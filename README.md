@@ -43,7 +43,7 @@ THANKS FOR CHECKING OUT MY PROJECT!
 * run `npm install` to install required dependencies
 * run `npm start` in your terminal and follow link to the correct port
 
-*Also need to install Learn-API for database.*
+*Also need to install learn-api for database.*
 
 **You can also see this project live on [Heroku](https://learn-with-me-usa.herokuapp.com/)!**
 
