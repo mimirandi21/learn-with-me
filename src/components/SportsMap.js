@@ -202,7 +202,7 @@ class SportsMap extends React.Component {
 				fill: this.state.chosenOption.abbr === "DC" ? "#10375c" : "#b9838a",
 			},
 			DC2: {
-				fill: this.state.chosenTitle === "DC" ? "#10375c" : "#b9838a",
+				fill: this.state.chosenTitle.abbr === "DC" ? "#10375c" : "#b9838a",
 			},
 		};
 	};
