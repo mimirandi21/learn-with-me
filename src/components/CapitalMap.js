@@ -31,14 +31,15 @@ class CapitalMap extends React.Component {
 		}
 	}
 
-	sleep = () => {
-		return new Promise(resolve => setTimeout(resolve, ms));
-	}
+	sleep = (ms) => {
+		return new Promise((resolve) => setTimeout(resolve, ms));
+	};
 
 	//use click event to get usstate data, send to state
 	mapHandler = (e) => {
 		if (this.props.requesting === true) {
-			await this.sleep(2000);
+			this.sleep(2000);
+			this.mapHandler(e);
 		}
 		let thisone = e.target.dataset.name;
 		let chosen = this.props.capitals.capitals.data.find((option) => {
