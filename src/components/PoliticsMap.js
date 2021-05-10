@@ -32,6 +32,10 @@ class PoliticsMap extends React.Component {
 
 	//use click event to get usstate data, send to state
 	mapHandler = (e) => {
+		if (this.props.requesting === true) {
+			this.sleep(2000);
+			this.mapHandler(e);
+		}
 		let title = e.target.textContent;
 		let thisone = e.target.dataset.name;
 		let chosen = this.props.politics.politics.data.find((option) => {
