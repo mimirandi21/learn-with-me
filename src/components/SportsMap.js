@@ -32,19 +32,15 @@ class SportsMap extends React.Component {
 
 	//use click event to get usstate data, send to state
 	mapHandler = (e) => {
-		if (this.props.teams.requesting === true) {
-			setTimeout(this.mapHandler(e), 2000);
+		let title = e.target.textContent;
+		let thisone = e.target.dataset.name;
+		let chosen = this.props.teams.teams.data.filter((option) => {
+			return option.abbr === thisone;
+		});
+		if (chosen[0] && chosen[0].abbr === "DC") {
+			this.showSportsCard(chosen, "Washington D.C.");
 		} else {
-			let title = e.target.textContent;
-			let thisone = e.target.dataset.name;
-			let chosen = this.props.teams.teams.data.filter((option) => {
-				return option.abbr === thisone;
-			});
-			if (chosen[0] && chosen[0].abbr === "DC") {
-				this.showSportsCard(chosen, "Washington D.C.");
-			} else {
-				this.showSportsCard(chosen, title);
-			}
+			this.showSportsCard(chosen, title);
 		}
 	};
 
@@ -215,19 +211,23 @@ class SportsMap extends React.Component {
 		};
 	};
 	render() {
-		return (
-			<div className="Map">
-				<USAMap
-					customize={this.statesCustomConfig()}
-					onClick={this.mapHandler}
-				/>
-				<SportsCards
-					show={this.state.showSportsCard}
-					chosenOption={this.state.chosenOption}
-					chosenTitle={this.state.chosenTitle}
-				/>
-			</div>
-		);
+		if (this.props.teams.requesting === true) {
+			return <div>Loading, one second.</div>;
+		} else {
+			return (
+				<div className="Map">
+					<USAMap
+						customize={this.statesCustomConfig()}
+						onClick={this.mapHandler}
+					/>
+					<SportsCards
+						show={this.state.showSportsCard}
+						chosenOption={this.state.chosenOption}
+						chosenTitle={this.state.chosenTitle}
+					/>
+				</div>
+			);
+		}
 	}
 }
 

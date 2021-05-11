@@ -32,17 +32,13 @@ class GeneralMap extends React.Component {
 
 	//use click event to get usstate data, send to state
 	mapHandler = (e) => {
-		if (this.props.general.requesting === true) {
-			setTimeout(this.mapHandler(e), 2000);
-		} else {
-			let title = e.target.textContent;
-			let thisone = e.target.dataset.name;
-			let chosen = this.props.general.general.data.find((option) => {
-				return option.abbr === thisone;
-			});
+		let title = e.target.textContent;
+		let thisone = e.target.dataset.name;
+		let chosen = this.props.general.general.data.find((option) => {
+			return option.abbr === thisone;
+		});
 
-			this.showGeneralCard(chosen, title);
-		}
+		this.showGeneralCard(chosen, title);
 	};
 
 	//set usstate color, keep dark when selected
@@ -204,19 +200,23 @@ class GeneralMap extends React.Component {
 		};
 	};
 	render() {
-		return (
-			<div className="Map">
-				<USAMap
-					customize={this.statesCustomConfig()}
-					onClick={this.mapHandler}
-				/>
-				<GeneralCards
-					show={this.state.showGeneralCard}
-					chosenOption={this.state.chosenOption}
-					chosenTitle={this.state.chosenTitle}
-				/>
-			</div>
-		);
+		if (this.props.general.requesting === true) {
+			return <div>Loading, one second.</div>;
+		} else {
+			return (
+				<div className="Map">
+					<USAMap
+						customize={this.statesCustomConfig()}
+						onClick={this.mapHandler}
+					/>
+					<GeneralCards
+						show={this.state.showGeneralCard}
+						chosenOption={this.state.chosenOption}
+						chosenTitle={this.state.chosenTitle}
+					/>
+				</div>
+			);
+		}
 	}
 }
 const mSTP = (state) => {

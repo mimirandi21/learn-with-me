@@ -32,17 +32,13 @@ class PoliticsMap extends React.Component {
 
 	//use click event to get usstate data, send to state
 	mapHandler = (e) => {
-		if (this.props.politics.requesting === true) {
-			setTimeout(this.mapHandler(e), 2000);
-		} else {
-			let title = e.target.textContent;
-			let thisone = e.target.dataset.name;
-			let chosen = this.props.politics.politics.data.find((option) => {
-				return option.abbr === thisone;
-			});
-			console.log(thisone, chosen, title);
-			this.showPoliticsCard(chosen, title);
-		}
+		let title = e.target.textContent;
+		let thisone = e.target.dataset.name;
+		let chosen = this.props.politics.politics.data.find((option) => {
+			return option.abbr === thisone;
+		});
+		console.log(thisone, chosen, title);
+		this.showPoliticsCard(chosen, title);
 	};
 
 	//set usstate color, keep dark when selected
@@ -210,20 +206,24 @@ class PoliticsMap extends React.Component {
 		};
 	};
 	render() {
-		return (
-			<div className="Map">
-				<USAMap
-					customize={this.statesCustomConfig()}
-					onClick={this.mapHandler}
-				/>
-				<PoliticsCards
-					show={this.state.showPoliticsCard}
-					onClose={this.showPoliticsCard}
-					chosenOption={this.state.chosenOption}
-					chosenTitle={this.state.chosenTitle}
-				/>
-			</div>
-		);
+		if (this.props.politics.requesting === true) {
+			return <div>Loading, one second.</div>;
+		} else {
+			return (
+				<div className="Map">
+					<USAMap
+						customize={this.statesCustomConfig()}
+						onClick={this.mapHandler}
+					/>
+					<PoliticsCards
+						show={this.state.showPoliticsCard}
+						onClose={this.showPoliticsCard}
+						chosenOption={this.state.chosenOption}
+						chosenTitle={this.state.chosenTitle}
+					/>
+				</div>
+			);
+		}
 	}
 }
 

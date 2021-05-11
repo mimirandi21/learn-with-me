@@ -38,15 +38,12 @@ class CapitalMap extends React.Component {
 	//use click event to get usstate data, send to state
 	mapHandler = (e) => {
 		console.log(this.props.capitals.requesting);
-		if (this.props.capitals.requesting === true) {
-			setTimeout(this.mapHandler(e), 2000);
-		} else {
-			let thisone = e.target.dataset.name;
-			let chosen = this.props.capitals.capitals.data.find((option) => {
-				return option.abbr === thisone;
-			});
-			this.showCapitalCard(chosen);
-		}
+
+		let thisone = e.target.dataset.name;
+		let chosen = this.props.capitals.capitals.data.find((option) => {
+			return option.abbr === thisone;
+		});
+		this.showCapitalCard(chosen);
 	};
 
 	getdata = async (data) => {
@@ -221,18 +218,22 @@ class CapitalMap extends React.Component {
 		};
 	};
 	render() {
-		return (
-			<div className="Map">
-				<USAMap
-					customize={this.statesCustomConfig()}
-					onClick={this.mapHandler}
-				/>
-				<CapitalCards
-					show={this.state.showCapitalCard}
-					chosenOption={this.state.chosenOption}
-				/>
-			</div>
-		);
+		if (this.props.capitals.requesting === true) {
+			return <div>Loading, one second.</div>;
+		} else {
+			return (
+				<div className="Map">
+					<USAMap
+						customize={this.statesCustomConfig()}
+						onClick={this.mapHandler}
+					/>
+					<CapitalCards
+						show={this.state.showCapitalCard}
+						chosenOption={this.state.chosenOption}
+					/>
+				</div>
+			);
+		}
 	}
 }
 const mSTP = (state) => {
