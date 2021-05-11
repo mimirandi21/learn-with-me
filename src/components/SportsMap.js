@@ -33,15 +33,19 @@ class SportsMap extends React.Component {
 	//use click event to get usstate data, send to state
 	mapHandler = (e) => {
 		if (this.props.teams.requesting === true) {
-			this.sleep(2000);
-			this.mapHandler(e);
+			setTimeout(this.mapHandler(e), 2000);
+		} else {
+			let title = e.target.textContent;
+			let thisone = e.target.dataset.name;
+			let chosen = this.props.teams.teams.data.filter((option) => {
+				return option.abbr === thisone;
+			});
+			if (chosen[0] && chosen[0].abbr === "DC") {
+				this.showSportsCard(chosen, "Washington D.C.");
+			} else {
+				this.showSportsCard(chosen, title);
+			}
 		}
-		let title = e.target.textContent;
-		let thisone = e.target.dataset.name;
-		let chosen = this.props.teams.teams.data.filter((option) => {
-			return option.abbr === thisone;
-		});
-		this.showSportsCard(chosen, title);
 	};
 
 	//set usstate color, keep dark when selected

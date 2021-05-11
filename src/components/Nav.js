@@ -1,6 +1,5 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { NavLink, withRouter } from "react-router-dom";
-import Click from './click'
 
 // link styling
 const link = {
@@ -14,30 +13,27 @@ const link = {
 	boxShadow: "1px 2px 2px #175188",
 	borderRadius: "1em",
 	top: "0",
-	alignItems: 'center'
+	alignItems: "center",
 };
 
-const Nav = props => {
-
-	const [openMenu, setOpenMenu] = useState(false)
+const Nav = (props) => {
+	const [openMenu, setOpenMenu] = useState(false);
 
 	// set className for dropdown menu
-	const setClassNames = num => {
-        const classArr = ["m-item"];
-        if (openMenu) classArr.push(`open-${num}`)
-        return classArr.join(' ')
-    }
+	const setClassNames = (num) => {
+		const classArr = ["m-item"];
+		if (openMenu) classArr.push(`open-${num}`);
+		return classArr.join(" ");
+	};
 
 	// create link to correct page
-	const pushToRoute = route => {
-        props.history.push(route)
-        setOpenMenu(false)
-    }
-	
+	const pushToRoute = (route) => {
+		props.history.push(route);
+		setOpenMenu(false);
+	};
+
 	return (
-		
 		<div className="Nav">
-			
 			<NavLink
 				to="/"
 				/* set exact so it knows to only set activeStyle when route is deeply equal to link */
@@ -52,31 +48,36 @@ const Nav = props => {
 				Home
 			</NavLink>
 			<div className="Menu">
-            	<div className={"m-item m-logo"}
-                	onClick={() => setOpenMenu(!openMenu)}>
-                	Options
-            	</div>
-            	<div className={setClassNames(1)}
-                	onClick={() => pushToRoute("/Capitals")}>
-                	Capitals
-            	</div>
-           		<div className={setClassNames(2)}
-                	onClick={() => pushToRoute("/GeneralFacts")}>
-                	General
-            	</div>
-            	<div className={setClassNames(3)}
-                	onClick={() => pushToRoute("/SportsTeams")}>
-                	Sports
-            	</div>
-				<div className={setClassNames(4)}
-                	onClick={() => pushToRoute("/Politics")}>
-                	Government
-            	</div>
-        	</div>
+				<div className={"m-item m-logo"} onClick={() => setOpenMenu(!openMenu)}>
+					Options
+				</div>
+				<div
+					className={setClassNames(1)}
+					onClick={() => pushToRoute("/Capitals")}
+				>
+					Capitals
+				</div>
+				<div
+					className={setClassNames(2)}
+					onClick={() => pushToRoute("/GeneralFacts")}
+				>
+					General
+				</div>
+				<div
+					className={setClassNames(3)}
+					onClick={() => pushToRoute("/SportsTeams")}
+				>
+					Sports
+				</div>
+				<div
+					className={setClassNames(4)}
+					onClick={() => pushToRoute("/Politics")}
+				>
+					Government
+				</div>
 			</div>
-		);
-	
-}
+		</div>
+	);
+};
 
-
-export default (withRouter(Nav))
+export default withRouter(Nav);
