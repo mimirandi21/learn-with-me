@@ -40,12 +40,13 @@ class CapitalMap extends React.Component {
 		if (this.props.requesting === true) {
 			this.sleep(2000);
 			this.mapHandler(e);
+		} else {
+			let thisone = e.target.dataset.name;
+			let chosen = this.props.capitals.capitals.data.find((option) => {
+				return option.abbr === thisone;
+			});
+			this.showCapitalCard(chosen);
 		}
-		let thisone = e.target.dataset.name;
-		let chosen = this.props.capitals.capitals.data.find((option) => {
-			return option.abbr === thisone;
-		});
-		this.showCapitalCard(chosen);
 	};
 
 	getdata = async (data) => {
