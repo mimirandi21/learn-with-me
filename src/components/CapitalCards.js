@@ -16,8 +16,8 @@ export default class CapitalCards extends React.Component {
 		if (this.props.chosenOption.length === 0) {
 			return null;
 			//*render card when state chosen
-		} else if (this.props.requesting === true) {
-			this.getprops(this.props.capitals);
+			// } else if (this.props.requesting === true) {
+			// 	this.getprops(this.props.capitals);
 		} else {
 			return (
 				//font import

@@ -32,7 +32,7 @@ class PoliticsMap extends React.Component {
 
 	//use click event to get usstate data, send to state
 	mapHandler = (e) => {
-		if (this.props.requesting === true) {
+		if (this.props.politics.requesting === true) {
 			this.sleep(2000);
 			this.mapHandler(e);
 		}
