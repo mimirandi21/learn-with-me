@@ -1,17 +1,14 @@
-import React from "react";
+import React, {useRef} from "react";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 
-export default class PoliticsCards extends React.Component {
-	render() {
-		//*render no card if no usstate chosen
-		if (!this.props.chosenOption) {
+export const PoliticsCards = ({chosenOption, chosenTitle}) => { 
+	const ref = useRef();
+		if (!chosenOption) {
 			return null;
-			//*render card when state chosen
 		} else {
-			const listCongress = this.props.chosenOption.congressmen.map((person) => (
+			const listCongress = chosenOption.congressmen.map((person) => (
 				<li>{person}</li>
 			));
-			//!different info when DC chosen
 			return (
 				<div className="card">
 					<Flippy
@@ -19,14 +16,14 @@ export default class PoliticsCards extends React.Component {
 						flipOnClick={true}
 						flipOnHover={false}
 						flipDirection="horizontal"
-						ref={(r) => (this.flippy = r)}
+						ref={ref}
 					>
 						<FrontSide className="frontSide">
 							<img
 								alt="State Flag"
 								className="flagImg"
 								height="180px"
-								src={this.props.chosenOption.flag}
+								src={chosenOption.flag}
 							/>
 							<br />
 							<br />
@@ -35,36 +32,36 @@ export default class PoliticsCards extends React.Component {
 								<h1>
 									<b>
 										<u>
-											{this.props.chosenOption.abbr !== "DC"
-												? this.props.chosenTitle
+											{chosenOption.abbr !== "DC"
+												? chosenTitle
 												: "Washington D.C"}
 										</u>
 									</b>
 								</h1>
 								<br />
 								<h3>Number of Electoral College Votes:</h3>
-								<h5>{this.props.chosenOption.electoral}</h5>
+								<h5>{chosenOption.electoral}</h5>
 								<br />
 								<h3>
-									{this.props.chosenOption.abbr !== "DC"
+									{chosenOption.abbr !== "DC"
 										? "Governor:"
 										: "Mayor:"}
 								</h3>
-								<h5>{this.props.chosenOption.governor}</h5>
+								<h5>{chosenOption.governor}</h5>
 								<br />
 								<h3>
-									{this.props.chosenOption.abbr !== "DC" ? "Senators:" : null}
+									{chosenOption.abbr !== "DC" ? "Senators:" : null}
 								</h3>
 								<h5>
-									{this.props.chosenOption.abbr !== "DC"
-										? `${this.props.chosenOption.senator[0]}  &  ${this.props.chosenOption.senator[1]}`
+									{chosenOption.abbr !== "DC"
+										? `${chosenOption.senator[0]}  &  ${chosenOption.senator[1]}`
 										: null}
 								</h5>
 								<br />
 								<h3>Congressmen/Congresswomen:</h3>
 								<ul className="congress">{listCongress}</ul>
 								<h3>
-									<a href={this.props.chosenOption.website}>Learn more here!</a>
+									<a href={chosenOption.website}>Learn more here!</a>
 								</h3>
 							</span>
 						</FrontSide>
@@ -74,5 +71,6 @@ export default class PoliticsCards extends React.Component {
 				</div>
 			);
 		}
-	}
-}
+	};
+
+export default PoliticsCards;
