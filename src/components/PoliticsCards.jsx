@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
-import Flippy, { FrontSide, BackSide } from "react-flippy";
+import React, { useRef } from 'react';
+import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
-const DC = "DC";
-const TITLE = "title";
-const GOVERNOR = "governor";
-const SENATOR = "senator";
-const SENATOR_LIST = "senator list";
+const DC = 'DC';
+const TITLE = 'title';
+const GOVERNOR = 'governor';
+const SENATOR = 'senator';
+const SENATOR_LIST = 'senator list';
 
 const TitleHeading = ({ heading }) => (
   <h1>
@@ -29,16 +29,16 @@ export const PoliticsCards = ({ chosenOption, chosenTitle }) => {
   const handleDC = (str, type) => {
     switch (type) {
       case TITLE:
-        return isDC(str) ? chosenTitle : "Washington D.C";
+        return isDC(str) ? chosenTitle : 'Washington D.C';
       case GOVERNOR:
-        return isDC(str) ? "Governor:" : "Mayor:";
+        return isDC(str) ? 'Governor:' : 'Mayor:';
       case SENATOR:
-        return isDC(str) ? "Senators:" : null;
+        return isDC(str) ? 'Senators:' : null;
       case SENATOR_LIST:
         return isDC(str) ? `${senator[0]}  &  ${senator[1]}` : null;
 
       default:
-        throw new Error("error: select a valid type for chosenOption");
+        throw new Error('error: select a valid type for chosenOption');
     }
   };
   const ref = useRef();
@@ -70,12 +70,12 @@ export const PoliticsCards = ({ chosenOption, chosenTitle }) => {
               <br />
               <ElectoralCollegeStats electoral={electoral} />
               <br />
-              <h3>{abbr !== "DC" ? "Governor:" : "Mayor:"}</h3>
+              <h3>{abbr !== 'DC' ? 'Governor:' : 'Mayor:'}</h3>
               <h5>{governor}</h5>
               <br />
-              <h3>{abbr !== "DC" ? "Senators:" : null}</h3>
+              <h3>{abbr !== 'DC' ? 'Senators:' : null}</h3>
               <h5>
-                {abbr !== "DC" ? `${senator[0]}  &  ${senator[1]}` : null}
+                {abbr !== 'DC' ? `${senator[0]}  &  ${senator[1]}` : null}
               </h5>
               <br />
               <h3>Congressmen/Congresswomen:</h3>

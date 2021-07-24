@@ -1,24 +1,25 @@
-import { SET_GENERAL } from '../actionTypes'
-import { START_ADDING_GENERAL } from '../actionTypes'
+import { SET_GENERAL, START_ADDING_GENERAL } from '../actionTypes';
 
-export default function GeneralFactsReducer(state = {general: [], showGeneralCard: false, requesting: false}, action) {
-    switch(action.type) {
+export default function GeneralFactsReducer(
+  state = { general: [], showGeneralCard: false, requesting: false },
+  action,
+) {
+  switch (action.type) {
+    case START_ADDING_GENERAL:
+      return {
+        ...state,
 
-        case START_ADDING_GENERAL:
-            return {
-                ...state,
-                
-                requesting: true
-            }
+        requesting: true,
+      };
 
-        case SET_GENERAL:
-            return {
-                ...state,
-                general: action.general,
-                requesting: false
-            }
+    case SET_GENERAL:
+      return {
+        ...state,
+        general: action.general,
+        requesting: false,
+      };
 
-        default:
-            return state
-    }
+    default:
+      return state;
+  }
 }
