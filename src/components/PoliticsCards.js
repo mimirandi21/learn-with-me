@@ -1,14 +1,51 @@
 import React, { useRef } from "react";
 import Flippy, { FrontSide, BackSide } from "react-flippy";
 
+const DC = "DC";
+const TITLE = "title";
+const GOVERNOR = "governor";
+const SENATOR = "senator";
+const SENATOR_LIST = "senator list";
+
+const TitleHeading = ({ heading }) => (
+  <h1>
+    <b>
+      <u>{heading}</u>
+    </b>
+  </h1>
+);
+
+const ElectoralCollegeStats = ({ electoral }) => (
+  <>
+    <h3>Number of Electoral College Votes:</h3>
+    <h5>{electoral}</h5>
+  </>
+);
+
 export const PoliticsCards = ({ chosenOption, chosenTitle }) => {
+  const { congressmen, flag, abbr, electoral, governor, senator, website } =
+    chosenOption;
+  const isDC = (str) => str === DC;
+  const handleDC = (str, type) => {
+    switch (type) {
+      case TITLE:
+        return isDC(str) ? chosenTitle : "Washington D.C";
+      case GOVERNOR:
+        return isDC(str) ? "Governor:" : "Mayor:";
+      case SENATOR:
+        return isDC(str) ? "Senators:" : null;
+      case SENATOR_LIST:
+        return isDC(str) ? `${senator[0]}  &  ${senator[1]}` : null;
+
+      default:
+        throw new Error("error: select a valid type for chosenOption");
+    }
+  };
   const ref = useRef();
   if (!chosenOption) {
     return null;
   } else {
-    const listCongress = chosenOption.congressmen.map((person) => (
-      <li>{person}</li>
-    ));
+    const listCongress = congressmen.map((person) => <li>{person}</li>);
     return (
       <div className="card">
         <Flippy
@@ -23,39 +60,28 @@ export const PoliticsCards = ({ chosenOption, chosenTitle }) => {
               alt="State Flag"
               className="flagImg"
               height="180px"
-              src={chosenOption.flag}
+              src={flag}
             />
             <br />
             <br />
 
             <span>
-              <h1>
-                <b>
-                  <u>
-                    {chosenOption.abbr !== "DC"
-                      ? chosenTitle
-                      : "Washington D.C"}
-                  </u>
-                </b>
-              </h1>
+              <TitleHeading heading={handleDC(abbr, TITLE)} />
               <br />
-              <h3>Number of Electoral College Votes:</h3>
-              <h5>{chosenOption.electoral}</h5>
+              <ElectoralCollegeStats electoral={electoral} />
               <br />
-              <h3>{chosenOption.abbr !== "DC" ? "Governor:" : "Mayor:"}</h3>
-              <h5>{chosenOption.governor}</h5>
+              <h3>{abbr !== "DC" ? "Governor:" : "Mayor:"}</h3>
+              <h5>{governor}</h5>
               <br />
-              <h3>{chosenOption.abbr !== "DC" ? "Senators:" : null}</h3>
+              <h3>{abbr !== "DC" ? "Senators:" : null}</h3>
               <h5>
-                {chosenOption.abbr !== "DC"
-                  ? `${chosenOption.senator[0]}  &  ${chosenOption.senator[1]}`
-                  : null}
+                {abbr !== "DC" ? `${senator[0]}  &  ${senator[1]}` : null}
               </h5>
               <br />
               <h3>Congressmen/Congresswomen:</h3>
               <ul className="congress">{listCongress}</ul>
               <h3>
-                <a href={chosenOption.website}>Learn more here!</a>
+                <a href={website}>Learn more here!</a>
               </h3>
             </span>
           </FrontSide>
