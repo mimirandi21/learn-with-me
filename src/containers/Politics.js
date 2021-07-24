@@ -1,15 +1,12 @@
-import PoliticsMap from "../components/PoliticsMap"
-import React from 'react'
-
+import React from 'react';
+import PoliticsMap from '../components/PoliticsMap';
 
 export default class Politics extends React.Component {
-
-    render() {
-        return(
-            <div>
-                <PoliticsMap/>
-                
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <PoliticsMap />
+      </div>
+    );
+  }
 }
